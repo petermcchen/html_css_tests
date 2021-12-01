@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+        p {
+            font-size: large;
+            font-style: italic;
+            color: indigo;
+        }
+        /* Progress bar when hover (CSS Transition) */
+        .g-container {
+            width: 240px;
+            height: 25px;
+            border-radius: 25px;
+            background: #eee;
+        }
+        .g-progress {
+            width: 50%;
+            height: inherit;
+            border-radius: 25px 0 0 25px;
+            background-image: linear-gradient(to right, #0f0, #0ff);
+            transition: width .2s linear;
+        }
+        .g-progress:hover {
+            width: 100%;
+        }
+        /* Progress bar auto way (CSS Animation) */
+        .my_progress {
+            margin: 5px auto;
+            padding: 2px;
+            width: 100%;
+            max-width: 500px;
+            border: 3px solid #05e35e;
+            height: 30px;
+        }
+        .my_progress .my_progressbar {
+            height: 100%;
+            width: 0%;
+            background-color: #05e35e;
+            animation: fill-bar1 3s infinite;
+        }
+        @keyframes fill-bar1 {
+            from {width: 0%;}
+            to {width: 100%;}
+        }
+        /* Progress bar auto way (CSS Animation 2) */
+        .my_progress2 {
+            margin: 5px auto;
+            padding: 2px;
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border: 3px solid #000;
+            border-radius: 20px;
+            height: 30px;
+        }
+        .my_progress2 .my_progressbar2 {
+            height: 100%;
+            width: 5%;
+            border-radius: 15px;
+            background: repeating-linear-gradient(
+                135deg,
+                #036ffc,
+                #036ffc 20px,
+                #1163cf 20px,
+                #1163cf 40px
+            );
+            animation: fill-bar2 6s infinite;
+        }
+        @keyframes fill-bar2 {
+            from {width: 5%;}
+            to {width: 100%;}
+        }
+        /* Progress bar example (JS) */
+        .my_progress3 {
+            margin: 50px auto;
+            padding: 0px;
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border: 1px solid #000;
+            border-radius: 5px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .my_progress3 .my_progressbar3 {
+            height: 100%;
+            width: 0;
+            border-radius: 4px;
+            background: linear-gradient(to right, red, orange , yellow, green, cyan, blue, violet);
+            transition: 0.3s;
+        }
+        label {
+            color: #eee;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        input, submit {
+            box-sizing: border-box;
+            width: 80px;
+            border-radius: 5px;
+            height: 25px;
+            margin-right: 5px;
+        }
+	</style>
+</head>
+<body>
+    <p>Progress bar when hover (CSS Transition): </p>
+    <div class="g-container">
+        <div class="g-progress"></div>
+    </div>
+
+    <p>Progress bar auto way (CSS Animation): </p>
+    <div class="my_progress"> 
+        <div class="my_progressbar"></div>
+    </div>
+
+    <p>Progress bar auto way (CSS Animation 2): </p>
+    <div class="my_progress2"> 
+        <div class="my_progressbar2"></div>
+    </div>
+
+    <p>Progress bar example (JS): </p>
+    <div class="my_progress3"> 
+        <div id="download" class="my_progressbar3"></div>
+    </div>
+      
+    <label for="set-value">Choose a value 0-100: </label>
+    <input id="set-value">
+    <input id="submit" type="submit" value="Submit">
+
+    <script>
+        let progressbar = document.getElementById("download");
+        
+        function updateProgressBar(value) {
+          if (value >= 0 && value <= 100) {
+            progressbar.style.width = value + "%"; 
+          }
+        }
+        
+        function handleInput() {
+          console.log("hello")
+          let value = document.getElementById('set-value').value;
+          if (value > 100) {
+            value = 100;
+            document.getElementById('set-value').value = 100;
+          }
+          if (value < 0) {
+            value = 0;
+            document.getElementById('set-value').value = 0;
+          }
+          
+          updateProgressBar(value);
+        }
+          
+        document.getElementById("submit").addEventListener("click", handleInput, false);
+    </script>
+</body>
+</html>

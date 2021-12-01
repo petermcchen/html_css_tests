@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="styles.css">
+  <style>
+    body {
+        background-color: powderblue;
+    }
+    h1 {
+        color: blue;
+    }
+    p {
+        color: red;
+    }
+    a:hover {
+        color: hotpink;
+    }
+    a:active {
+        color: #0000FF;
+    }
+    .header {
+        background-color: #F1F1F1;
+        text-align: center;
+    }
+    #grad1 {
+        height: 50px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(red, yellow);
+    }
+    #grad {
+        height: 50px;
+        /*background-color: green;*/
+        background-image: linear-gradient(to right, red, yellow);
+    }
+  </style>
+  <script>
+  function myFunction() {
+    document.getElementById("demo").innerHTML = "Hello JavaScript!";
+  }
+  </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>This is a heading</h1>
+</div>
+<div id="grad"></div>
+<p>This is a paragraph.</p>
+<h2>Image as a Link</h2>
+
+<p>The image below is a link. Try to click on it.</p>
+<a href="htmlresponsive.html"><img src="TI_Logo.gif" alt="HTML tutorial" style="width:42px;height:42px;">Visit htmlresponsive!</a>
+<br>
+<a href="https://www.w3schools.com/" target="_blank">Visit W3Schools.com!</a>
+
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+</body>
+</html>
